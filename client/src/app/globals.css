@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---- theme variables ---- */
+/* LIGHT theme (default) */
+:root {
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+/* DARK theme overrides when `html` has the .dark class */
+.dark {
+  --color-gray-50: #111827;
+  --color-gray-100: #1f2937;
+  --color-gray-200: #374151;
+  --color-gray-300: #4b5563;
+  --color-gray-400: #6b7280;
+  --color-gray-500: #9ca3af;
+  --color-gray-600: #d1d5db;
+  --color-gray-700: #e5e7eb;
+  --color-gray-800: #f3f4f6;
+  --color-gray-900: #f9fafb;
+
+  --color-white: #0a0a0a;
+  --color-black: #f9fafb;
+}
+
+/* ---- apply global background & text using the variables ---- */
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  @apply text-sm;
+  /* use Tailwind arbitrary values that reference CSS variables */
+  @apply bg-[var(--color-gray-50)] text-[var(--color-gray-900)];
+}
+
+/* Example utility that uses CSS variables (optional) */
+.btn-primary {
+  @apply px-4 py-2 rounded font-semibold;
+  background-color: var(--color-gray-700);
+  color: var(--color-white);
+}
+@media (min-width: 760px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 20vh);
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 7.5vh);
+  }
+}
